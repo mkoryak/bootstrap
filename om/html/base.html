@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open Mile Components</title>
+    <link href="/css/ombootstrap.css" rel="stylesheet"/>
+    <link href="/css/page-styles.css" rel="stylesheet"/>
+    {% block styles %}{% endblock %}
+</head>
+    <body>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <a class="brand" href="#">Open Mile: Components</a>
+                <ul class="nav">
+                    <li class="active"><a href="/portlet/">Portlet</a></li>
+                </ul>
+            </div>
+        </div>
+
+        {% block content %}{% endblock %}
+
+        {% block scripts %}{% endblock %}
+    </body>
+</html>

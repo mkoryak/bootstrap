@@ -1,9 +1,84 @@
 @import '../../less/wells.less';
 @import '../../less/variables.less';
 @import '../../less/mixins.less';
+@import '../../less/utilities.less';
 
 .portlet {
   .well;
 
-  background: red;
+  position: relative;
+  background-color: #fff;
+
+  div.header {
+    position: relative;
+
+    height: auto;
+    margin: -18px -19px 15px;
+    padding: 12px 18px;
+
+    background-color: @grayLighter;
+
+    >span {
+      display: inline-block;
+      text-align: left;
+      color: black;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    >span + span {
+      .pull-right;
+      font-weight: normal;
+    }
+  }
+
+  /*colors */
+  &.blue,
+  &.dark-blue,
+  &.red,
+  &.gray,
+  &.yellow,
+  &.white {
+    .header {
+      margin-bottom: 5px;
+      background: none;
+    }
+  }
+
+  &.blue {
+    background-color: @blue;
+  }
+
+  &.gray {
+    background-color: @grayLight;
+  }
+
+  &.light-gray {
+    background-color: @grayLighter;
+  }
+
+  &.yellow {
+    border-color: #dedaad;
+    background-color: #fff9b6;
+  }
+
+  &.white {
+    background-color: @white;
+  }
+
+  &.red {
+    border-color: @red;
+    background-color: #ffc7c8;
+  }
+
+  &.dark-blue {
+    color: white;
+    border-color: @blueDark;
+    background-color: @blueDark;
+    div.header {
+      >span {
+        color: white;
+      }
+    }
+  }
+
 }

@@ -1,0 +1,513 @@
+//for reference only!
+
+.box.corner-b {
+  .rounded-bottomcorners(@portlet-rounded-radius);
+}
+
+.box.corner-b div.header {
+  .rounded-corners(0px);
+}
+
+.box.corner-t, .box.corner-t div.header {
+  .rounded-topcorners(@portlet-rounded-radius);
+}
+
+.box.corner-br {
+  .rounded-bottomright(@portlet-rounded-radius);
+}
+
+.box.corner-br div.header {
+  .rounded-corners(0px);
+}
+
+.box.corner-bl {
+  .rounded-bottomleft(@portlet-rounded-radius);
+}
+
+.box.corner-bl div.header {
+  .rounded-corners(0px);
+}
+
+.box.corner-tr, .box.corner-tr div.header {
+  .rounded-topright(@portlet-rounded-radius);
+}
+
+.box.corner-tl, .box.corner-tl div.header {
+  .rounded-topleft(@portlet-rounded-radius);
+}
+
+.box.corner-all {
+  .rounded-corners(@portlet-rounded-radius);
+}
+
+.box.corner-all div.header {
+  .rounded-topcorners(@portlet-rounded-radius);
+}
+
+.box.corner-, .box.corner- div.header {
+/*no corners sorry*/
+}
+
+.box.corner-none, .box.corner-none div.header {
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
+}
+
+/* TODO: .portlet.box is a migration style. once box migration is complete, this style should be removed since .box will become .portlet */
+.box, .portlet.box {
+  position: relative;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  margin-bottom: 15px;
+  padding: 15px 18px;
+
+  border: 1px solid #ddd;
+
+  div.header {
+    position: relative;
+
+    height: auto;
+    margin: -15px -18px 17px -18px;
+    padding: 12px 18px;
+
+    background-color: #f3f3f3;
+
+    .header-text {
+      text-align: left;
+
+      color: black;
+
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    label {
+      line-height: 13px;
+    }
+  }
+  .header.with-link {
+    div.header-text, span.header-link {
+      display: inline-block;
+    }
+    div.header-text {
+      vertical-align: bottom;
+    }
+  }
+  span.header-link {
+    float: right;
+  }
+
+  div.header.subheader {
+  /*square header in the middle of a portlet */
+    margin: 10px -18px 17px;
+    .rounded-corners(0px);
+  }
+
+  table.simple {
+    width: 100%;
+
+    border-collapse: collapse;
+    td {
+      padding: 7px 10px 7px 10px;
+
+      color: #333;
+      border: 1px solid #ddd;
+      border-width: 1px 0 0 0;
+
+      font-size: 13px;
+    }
+    th {
+      padding: 0 10px 7px 10px;
+
+      color: #777;
+      border: 1px #aec3d0 solid;
+      border-width: 0 0 1px 0;
+
+      font-size: 13px;
+      font-weight: normal;
+    }
+  }
+  table.simple.condensed {
+    @verticalPadding: 3px;
+    @horizontalPadding: 5px;
+    td {
+      padding: @verticalPadding @horizontalPadding;
+    }
+    th {
+      padding: 0 @verticalPadding @horizontalPadding @verticalPadding;
+    }
+
+  }
+  .subbox {
+    display: block;
+
+    margin: 10px;
+    padding: 15px;
+
+    border: 1px solid @light-gray;
+    .rounded-corners(@portlet-rounded-radius);
+  }
+
+  .subbox.blue {
+    color: @black;
+    background-color: @light-blue;
+  }
+
+  div.buttons {
+    clear: both;
+
+    margin: 10px 5px 0;
+
+    text-align: right;
+  }
+
+}
+
+.box.taffy-table {
+/*override overflow hidden in case the taffy table is too wide. note that this will break float_scroll but lucky for us, that is used more on admin search portlets which are not .box YET */
+  overflow-x: auto;
+}
+
+.box.no-border {
+  border: none;
+}
+
+.box.simple-form {
+  @p2-simple-form-label-width: 120px;
+  li {
+    label {
+      display: inline-block;
+
+      width: @p2-simple-form-label-width;
+      padding: 2px;
+
+      line-height: 1em;
+    }
+    .option-group {
+      label {
+        width: auto;
+        margin-right: 10px;
+      }
+    }
+    label.error, div.error-message {
+      display: inline;
+
+      width: auto;
+
+      color: @red;
+    }
+    input.date-picker, input.time-picker {
+      margin-right: 0;
+    }
+    input.date-picker {
+      width: 80px;
+    }
+    input.time-picker {
+      width: 40px;
+    }
+    input {
+      width: 160px;
+    }
+    input[type="radio"], input[type="checkbox"] {
+      width: auto;
+    }
+    form input[type="text"] {
+      margin: 4px 0 3px;
+      padding: 4px;
+
+      border: 1px solid #CCCCCC;
+    }
+    select {
+      width: 171px;
+      margin: 4px 0 3px;
+      padding: 4px;
+    }
+    input, select {
+      margin-right: 5px;
+    }
+    .ui-multiselect {
+      margin: 0 5px 2px 0;
+    }
+    button.ui-multiselect {
+      margin-top: 3px;
+    }
+
+    input[type=checkbox] {
+      width: auto;
+      margin: 7px 0;
+    }
+    textarea {
+      margin: 4px 0 3px;
+      padding: 4px;
+
+      border: 1px solid #CCCCCC;
+    }
+    input.datetime.date {
+      width: 80px;
+    }
+
+    input.datetime.time {
+      width: 44px;
+      margin-left: 10px;
+    }
+    input.datetime.time.error {
+      margin-left: 6px;
+    }
+  }
+  li.align {
+    margin-left: 5px;
+    padding-left: @p2-simple-form-label-width;
+  }
+}
+
+.box.simple-form.wide {
+  @p2-simple-form-label-width: 150px;
+  li {
+    label {
+      width: @p2-simple-form-label-width;
+    }
+  }
+  li.align {
+    padding-left: @p2-simple-form-label-width;
+  }
+}
+
+.box.simple-form.wider {
+  @p2-simple-form-label-width: 175px;
+  li {
+    label {
+      width: @p2-simple-form-label-width;
+    }
+  }
+  li.align {
+    padding-left: @p2-simple-form-label-width;
+  }
+}
+
+.box.simple-form.chunky {
+  li {
+    line-height: 35px;
+    select {
+      font-size: 17px;
+    }
+  }
+}
+
+.box.simple-form.display-block-errors, .box.simple-form.stack.display-block-errors {
+  li div.error-message, li label.error {
+    display: block;
+  }
+}
+
+.box.simple-form.stack {
+  li {
+    label {
+      display: block;
+
+      width: auto;
+      margin-top: 10px;
+    }
+    label.error {
+      display: inline;
+    }
+    span.label-wrap {
+      margin-top: 10px;
+      label {
+        margin-top: 0;
+      }
+    }
+  }
+  li:first-child {
+    label {
+      margin-top: 0;
+    }
+  }
+}
+
+/*header styles */
+.box.internal {
+  div.header .header-text {
+    padding-left: 25px;
+
+    background: transparent url(../images/internal.png) no-repeat left center;
+  }
+}
+
+.box.new {
+  div.header {
+    background: #efefef url(../images/new_flag.png) no-repeat 97% center !important;
+  }
+}
+
+.box.header-blue {
+  div.header {
+    background-color: #A9CDDD;
+  }
+}
+
+/*loading styles*/
+.box.header-blue.loading {
+  .header-text {
+    background: transparent url(../images/processing.small.blue.gif) no-repeat 100% center !important;
+  }
+}
+
+.box.loading {
+  .header-text {
+    background: transparent url(../images/processing.small.gray.gif) no-repeat 100% center !important;
+  }
+}
+
+.box.header-red {
+  div.header {
+    background-color: #ffc7c8;
+  }
+}
+
+/*box colors */
+.box.blue,
+.box.dark-blue,
+.box.red,
+.box.gray,
+.box.yellow,
+.box.white {
+  div.header {
+    margin-bottom: 5px;
+
+    background: none;
+  }
+}
+
+.box.blue {
+  background-color: @light-blue;
+}
+
+.box.gray {
+  background-color: #f3f3f3;
+}
+
+.box.light-gray {
+  background-color: @light-gray;
+}
+
+.box.yellow {
+  border-color: #dedaad;
+  background-color: #fff9b6;
+}
+
+.box.white {
+  background-color: @white;
+}
+
+.box.red {
+  border-color: @red;
+  background-color: #ffc7c8;
+}
+
+.box.dark-blue {
+  color: white;
+  border-color: #134D70;
+  background-color: #134D70;
+  div.header {
+    .header-text, .header-link {
+      color: white;
+    }
+  }
+}
+
+.box.last, .box.popup {
+  margin-bottom: 0;
+}
+
+/*misc styles */
+.box.nopad, .box.collapsed {
+  padding: 0;
+  div.header, div.header.subheader {
+    overflow: hidden;
+
+    margin: 0;
+    padding: 12px 18px;
+  }
+  .padding {
+    padding: 15px 18px;
+  }
+}
+
+.box.expand {
+  padding: 0;
+  div.header, div.header.subheader {
+    overflow: hidden;
+
+    margin: 0;
+    padding: 12px 18px;
+  }
+  div.expand-portlet-content {
+    padding: 15px 18px;
+  }
+}
+
+.box.collapsed {
+  .rounded-bottomcorners(@portlet-rounded-radius);
+}
+
+.edit-popup > .box:last-child {
+  margin-bottom: 0;
+}
+
+.ui-dialog .ui-dialog-content.box {
+  padding: 15px 18px;
+}
+
+/*fix admin edit portlets that are in boxes. we will make the box .nopad and fix content inside to not introduce padding:*/
+.box.portlet.admin-edit, .box.portlet.admin-edit2 {
+  padding: 0;
+  div.header {
+    overflow: hidden;
+  /*TODO: remove these next lines once all admin search portlets are converted to new standard: */
+
+    margin: 0;
+    padding: 10px 15px;
+    padding: 15px;
+  /*end stuff to remove */
+
+    background-color: #134D70;
+    .header-text {
+      color: white;
+    }
+    .header-link a {
+      color: white;
+    }
+  }
+  form fieldset {
+    margin: 0;
+    margin-bottom: 0;
+    padding: 0;
+    li {
+      padding: 4px 15px;
+    }
+  }
+  form div.buttons {
+    margin: 10px 5px;
+  }
+}
+
+/*end fix admin porlet*/
+
+.box.simple-form {
+  .buttons {
+    a.button.reset {
+      display: none;
+    }
+  }
+}
+
+.box.simple-form.popup {
+  .buttons {
+    a.button.reset {
+      display: inline-block;
+    }
+  }
+}

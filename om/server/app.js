@@ -16,10 +16,11 @@ app.configure('all', function(){
     app.use(express.methodOverride());
 
     var cssDir = __dirname +'/../css/';
-    app.use(require('less-middleware')({ src: __dirname + '/../less/', dest: cssDir, prefix:'/css/', force:true }));
-    app.use(require('less-middleware')({ src: __dirname + '/../../less/', dest: cssDir, prefix:'/css/', force:true }));
+    app.use(require('less-middleware')({ src: __dirname + '/../less/', dest: cssDir, prefix:'/css/', force:false }));
+    app.use(require('less-middleware')({ src: __dirname + '/../../less/', dest: cssDir, prefix:'/css/', force:false }));
     app.use(express.static(path.join(__dirname + '/../')));
     app.use(express.static(path.join(__dirname + '/../../', 'js')));
+    app.use(express.static(path.join(__dirname + '/../../', 'img')));
     app.use(app.router);
 
     // Since this is the last non-error-handling middleware used, we assume 404, as nothing else

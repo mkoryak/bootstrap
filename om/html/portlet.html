@@ -1,16 +1,58 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Open Mile Components</title>
-    <link href="/css/bootstrap.css" rel="stylesheet"/>
+{% extends "base.html" %}
+{% import "helpers.html" as h %}
+
+{% block styles %}
     <link href="/css/portlet.css" rel="stylesheet"/>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="span4">
 
-    <!-- less.js must go AFTER the less files -->
-    <!--<script type="text/javascript" src="../js/less.js"></script>-->
-</head>
-<body>
+            <div class="portlet">well?</div>
 
-<div class="portlet">well?</div>
+        </div>
+        <div class="span8">
 
-</body>
-</html>
+            <div class="portlet">
+                <div class="header">
+                    <span>This is the portlet title</span>
+                    <span><a href="openmile.com">A Link</a></span>
+                </div>
+                This is the portlet body. There can be some text here or whatever you want.
+                This is the portlet body. There can be some text here or whatever you want.
+                This is the portlet body. There can be some text here or whatever you want.
+            </div>
+
+            <div class="portlet">
+                <div class="header">
+                    <span>A portlet without a link</span>
+                </div>
+                This is the portlet body. There can be some text here or whatever you want.
+                This is the portlet body. There can be some text here or whatever you want.
+                This is the portlet body. There can be some text here or whatever you want.
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="sub-heading">
+            Portlet Colors
+        </div>
+    </div>
+    <div class="row">
+        <div class="span4">
+
+        </div>
+        <div class="span8">
+            {{ h.portlet('Blue Portlet', cls='blue') }}
+            {{ h.portlet('Dark Blue Portlet', cls='dark-blue') }}
+            {{ h.portlet('Red Portlet', cls='red') }}
+            {{ h.portlet('Gray Portlet', cls='gray') }}
+            {{ h.portlet('Light Gray Portlet', cls='light-gray') }}
+            {{ h.portlet('Yellow Portlet', cls='yellow') }}
+            {{ h.portlet('White Portlet', cls='white') }}
+        </div>
+    </div>
+</div>
+{% endblock %}
