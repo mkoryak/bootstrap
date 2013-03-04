@@ -3,21 +3,93 @@
 <head>
     <title>Open Mile Components</title>
     <link href="/css/ombootstrap.css" rel="stylesheet"/>
+    <link href="/css/responsive.css" rel="stylesheet"/>
+
     <link href="/css/page-styles.css" rel="stylesheet"/>
     {% block styles %}{% endblock %}
 </head>
-    <body>
-        <div class="navbar">
+    <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
-                <a class="brand" href="#">Open Mile: Components</a>
-                <ul class="nav">
-                    <li class="active"><a href="/portlet/">Portlet</a></li>
-                </ul>
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="/">Open Mile Components</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active">
+                                <a href="/portlet/">Portlet</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
-        {% block content %}{% endblock %}
+        <div class="container">
+
+            <!-- Docs nav
+            ================================================== -->
+            <div class="row">
+                <div class="span3 bs-docs-sidebar">
+                    <ul class="nav nav-list bs-docs-sidenav">
+                        {% block subnav %}{% endblock %}
+                    </ul>
+                </div>
+                <div class="span8">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=false"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
+
+        <script type="text/javascript" src="/js/bootstrap-affix.js"></script>
+        <script type="text/javascript" src="/js/bootstrap-scrollspy.js"></script>
+        <script src="/js/bootstrap-transition.js"></script>
+        <script src="/js/bootstrap-alert.js"></script>
+        <script src="/js/bootstrap-modal.js"></script>
+        <script src="/js/bootstrap-dropdown.js"></script>
+        <script src="/js/bootstrap-scrollspy.js"></script>
+        <script src="/js/bootstrap-tab.js"></script>
+        <script src="/js/bootstrap-tooltip.js"></script>
+        <script src="/js/bootstrap-popover.js"></script>
+        <script src="/js/bootstrap-button.js"></script>
+        <script src="/js/bootstrap-collapse.js"></script>
+        <script src="/js/bootstrap-carousel.js"></script>
+        <script src="/js/bootstrap-typeahead.js"></script>
+        <script src="/js/bootstrap-affix.js"></script>
 
         {% block scripts %}{% endblock %}
+
+        <script type="text/javascript">
+
+            var $window = $(window);
+
+            // side bar
+            setTimeout(function () {
+                $('.bs-docs-sidenav').affix({
+                    offset: {
+                        top: function () { return 10; }
+                    }
+                })
+            }, 100);
+
+
+            //syntax highlighting:
+            $('script.code').each(function(){
+                var $this = $(this);
+                var text = $this.text();
+                text = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                var $pre = $("<pre class='prettyprint'>"+text+"</pre>");
+                $this.replaceWith($pre);
+            });
+            window.prettyPrint && prettyPrint();
+        </script>
     </body>
 </html>

@@ -4,55 +4,62 @@
 {% block styles %}
     <link href="/css/portlet.css" rel="stylesheet"/>
 {% endblock %}
+
+
+{% block subnav %}
+    <li><a href="#basic"><i class="icon-chevron-right"></i> Basic Portlet</a></li>
+    <li><a href="#colors"><i class="icon-chevron-right"></i> Portlet Colors</a></li>
+{% endblock %}
+
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="span4">
 
-            <div class="portlet">well?</div>
-
-        </div>
-        <div class="span8">
-
-            <div class="portlet">
-                <div class="header">
-                    <span>This is the portlet title</span>
-                    <span><a href="openmile.com">A Link</a></span>
-                </div>
-                This is the portlet body. There can be some text here or whatever you want.
-                This is the portlet body. There can be some text here or whatever you want.
-                This is the portlet body. There can be some text here or whatever you want.
-            </div>
-
-            <div class="portlet">
-                <div class="header">
-                    <span>A portlet without a link</span>
-                </div>
-                This is the portlet body. There can be some text here or whatever you want.
-                This is the portlet body. There can be some text here or whatever you want.
-                This is the portlet body. There can be some text here or whatever you want.
-            </div>
-
-        </div>
+<section id="basic">
+    <div class="page-header">
+        <h1>Basic Portlet</h1>
     </div>
-    <div class="row">
-        <div class="sub-heading">
-            Portlet Colors
-        </div>
-    </div>
-    <div class="row">
-        <div class="span4">
 
+    <div class="portlet">
+        <div class="header">
+            <span>This is the portlet title</span>
+            <span><a class="btn btn-small btn-success" href="#">Save</a></span>
         </div>
-        <div class="span8">
-            {{ h.portlet('Blue Portlet', cls='blue') }}
-            {{ h.portlet('Dark Blue Portlet', cls='dark-blue') }}
-            {{ h.portlet('Red Portlet', cls='red') }}
-            {{ h.portlet('Gray Portlet', cls='gray') }}
-            {{ h.portlet('Light Gray Portlet', cls='light-gray') }}
-            {{ h.portlet('Yellow Portlet', cls='yellow') }}
-            {{ h.portlet('White Portlet', cls='white') }}
-        </div>
+        This is the portlet body. There can be some text here or whatever you want.
+        This is the portlet body. There can be some text here or whatever you want.
+        This is the portlet body. There can be some text here or whatever you want.
     </div>
-</div>
+
+    <div class="portlet">
+        <div class="header">
+            <span>A portlet without a link</span>
+        </div>
+        This is the portlet body. There can be some text here or whatever you want.
+        This is the portlet body. There can be some text here or whatever you want.
+        This is the portlet body. There can be some text here or whatever you want.
+    </div>
+</section>
+
+<section id="colors">
+    <div class="page-header">
+        <h1>Portlet Colors</h1>
+    </div>
+    <p>
+        Portlet color is controlled by specifying a color class, for example to make a red portlet you would write:
+    </p>
+<script class="code" type="template/text">
+<div class="portlet red">
+    <div class="header">
+        <span>Red Portlet</span>
+    </div>
+    Note the 'red' class added to this portlet.
+</div></script>
+
+    {{ h.portlet('Blue Portlet', cls='blue') }}
+    {{ h.portlet('Dark Blue Portlet', cls='dark-blue') }}
+    {{ h.portlet('Red Portlet', cls='red') }}
+    {{ h.portlet('Gray Portlet', cls='gray') }}
+    {{ h.portlet('Light Gray Portlet', cls='light-gray') }}
+    {{ h.portlet('Yellow Portlet', cls='yellow') }}
+    {{ h.portlet('White Portlet', cls='white') }}
+
+</section>
 {% endblock %}
