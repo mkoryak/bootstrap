@@ -17,6 +17,9 @@
     <div class="page-header">
         <h1>Basic Portlet</h1>
     </div>
+    <p>
+        Hover over the portlet to see the underlying HTML.
+    </p>
 
     <div class="portlet">
         <div class="header">
@@ -62,4 +65,17 @@
     {{ h.portlet('White Portlet', cls='white') }}
 
 </section>
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+    $(function(){
+        $('body.component-portlet .portlet').each(function(){
+            var $p = $(this);
+            var html = $p.clone().wrap("<div></div>").parent().html();
+            var $highlight = highlightBlock(html);
+            $p.addClass('reveal').wrap("<div class='reveal-code'></div>");
+            $p.after($highlight);
+        });
+    });
+</script>
 {% endblock %}

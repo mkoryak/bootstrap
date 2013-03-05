@@ -19,6 +19,9 @@ Thumbs.db
 .project
 .settings
 .tmproj
+.iml
+.ipr
+.iws
 *.esproj
 nbproject
 *.sublime-project
@@ -34,4 +37,5 @@ nbproject
 .CVS
 .idea
 node_modules
+compiled
 dist

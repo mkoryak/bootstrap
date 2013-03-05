@@ -1,10 +1,28 @@
 //non-component related styles
 
-@import '../../less/variables.less';
-@import '../../less/mixins.less';
-@import '../../less/utilities.less';
+@import '../../bootstrap/less/variables.less';
+@import '../../bootstrap/less/mixins.less';
+@import '../../bootstrap/less/utilities.less';
 
 
+div.reveal-code {
+  position: relative;
+  .prettyprint, .reveal {
+    display: none;
+  }
+  .reveal {
+    display: block;
+  }
+
+  &:hover {
+    .reveal {
+      display: none;
+    }
+    .prettyprint {
+      display: block;
+    }
+  }
+}
 
 /* Add additional stylesheets below
 -------------------------------------------------- */

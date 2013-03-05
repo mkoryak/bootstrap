@@ -2,11 +2,13 @@ var express = require('express')
   , http = require('http')
   , path = require('path');
 
+var rootDir = __dirname +'/../..';  //real project root
+
 var nunjucks = require('nunjucks');
 
 var app = express();
 
-var env = new nunjucks.Environment(new nunjucks.FileSystemLoader(__dirname+'/../html/'));
+var env = new nunjucks.Environment(new nunjucks.FileSystemLoader(rootDir+'/om/html/'));
 env.express(app);
 
 app.configure('all', function(){
@@ -15,11 +17,13 @@ app.configure('all', function(){
     app.use(express.bodyParser());
     app.use(express.methodOverride());
 
-    var cssDir = __dirname +'/../css/';
-    app.use(require('less-middleware')({ src: __dirname + '/../less/', dest: cssDir, prefix:'/css/', force:false }));
-    app.use(require('less-middleware')({ src: __dirname + '/../../less/', dest: cssDir, prefix:'/css/', force:false }));
-    app.use(express.static(path.join(__dirname + '/../')));
-    app.use(express.static(path.join(__dirname + '/../../')));
+
+    var cssDir = rootDir +'/compiled/css/';
+    app.use(require('less-middleware')({ src: rootDir+'/bootstrap/less/', dest: cssDir, prefix:'/css/', force:false }));
+    app.use(require('less-middleware')({ src: rootDir+'/om/less/', dest: cssDir, prefix:'/css/', force:false }));
+    app.use(express.static(rootDir+'/bootstrap/'));
+    app.use(express.static(rootDir+'/om/'));
+    app.use(express.static(rootDir+'/compiled/'));
     app.use(app.router);
 
     // Since this is the last non-error-handling middleware used, we assume 404, as nothing else
@@ -32,7 +36,7 @@ app.configure('all', function(){
 
 app.get('/:file', function(req, res){
     var fn = req.params.file;
-    res.render(fn+'.html', {  });
+    res.render(fn+'.html', {name: fn});
 });
 
 

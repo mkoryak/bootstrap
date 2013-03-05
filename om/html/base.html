@@ -8,7 +8,7 @@
     <link href="/css/page-styles.css" rel="stylesheet"/>
     {% block styles %}{% endblock %}
 </head>
-    <body data-spy="scroll" data-target=".bs-docs-sidebar">
+    <body data-spy="scroll" data-target=".bs-docs-sidebar" class="component-{{ name }}">
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
@@ -80,14 +80,17 @@
                 })
             }, 100);
 
+            var highlightBlock = function(html){
+                var text = html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                var $pre = $("<pre class='prettyprint'>"+text+"</pre>");
+                return $pre;
+            };
 
             //syntax highlighting:
             $('script.code').each(function(){
                 var $this = $(this);
                 var text = $this.text();
-                text = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                var $pre = $("<pre class='prettyprint'>"+text+"</pre>");
-                $this.replaceWith($pre);
+                $this.replaceWith(highlightBlock(text));
             });
             window.prettyPrint && prettyPrint();
         </script>
