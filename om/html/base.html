@@ -1,11 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <title>Open Mile Components</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
     <link href="/css/ombootstrap.css" rel="stylesheet"/>
     <link href="/css/responsive.css" rel="stylesheet"/>
-
     <link href="/css/page-styles.css" rel="stylesheet"/>
+    <link href="/docs/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="/docs/assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/docs/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/docs/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/docs/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/docs/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="/docs/assets/ico/favicon.png">
     {% block styles %}{% endblock %}
 </head>
     <body data-spy="scroll" data-target=".bs-docs-sidebar" class="component-{{ name }}">
@@ -21,6 +39,27 @@
                     <a class="brand" href="/">Open Mile Components</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
+                            <li class="">
+                                <a href="/index/">Home</a>
+                            </li>
+                            <li class="">
+                                <a href="getting-started.html">Get started</a>
+                            </li>
+                            <li class="">
+                                <a href="scaffolding.html">Scaffolding</a>
+                            </li>
+                            <li class="">
+                                <a href="base-css.html">Base CSS</a>
+                            </li>
+                            <li class="">
+                                <a href="components.html">Components</a>
+                            </li>
+                            <li class="">
+                                <a href="javascript.html">JavaScript</a>
+                            </li>
+                            <li class="">
+                                <a href="customize.html">Customize</a>
+                            </li>
                             <li class="active">
                                 <a href="/portlet/">Portlet</a>
                             </li>
@@ -30,6 +69,7 @@
             </div>
         </div>
 
+        {% block container %}
         <div class="container">
 
             <!-- Docs nav
@@ -45,6 +85,26 @@
                 </div>
             </div>
         </div>
+        {% endblock %}
+
+        <!-- Footer
+        ================================================== -->
+        <footer class="footer">
+            <div class="container">
+                <p>Designed and built with all the love in the world by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
+                <p>Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+                <p><a href="http://glyphicons.com">Glyphicons Free</a> licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+                <ul class="footer-links">
+                    <li><a href="http://blog.getbootstrap.com">Blog</a></li>
+                    <li class="muted">&middot;</li>
+                    <li><a href="https://github.com/twitter/bootstrap/issues?state=open">Issues</a></li>
+                    <li class="muted">&middot;</li>
+                    <li><a href="https://github.com/twitter/bootstrap/blob/master/CHANGELOG.md">Changelog</a></li>
+                </ul>
+            </div>
+        </footer>
+
+
         <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=false"></script>
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
@@ -65,34 +125,8 @@
         <script src="/js/bootstrap-typeahead.js"></script>
         <script src="/js/bootstrap-affix.js"></script>
 
+        <script src="/js/default.js"></script>
+
         {% block scripts %}{% endblock %}
-
-        <script type="text/javascript">
-
-            var $window = $(window);
-
-            // side bar
-            setTimeout(function () {
-                $('.bs-docs-sidenav').affix({
-                    offset: {
-                        top: function () { return 10; }
-                    }
-                })
-            }, 100);
-
-            var highlightBlock = function(html){
-                var text = html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                var $pre = $("<pre class='prettyprint'>"+text+"</pre>");
-                return $pre;
-            };
-
-            //syntax highlighting:
-            $('script.code').each(function(){
-                var $this = $(this);
-                var text = $this.text();
-                $this.replaceWith(highlightBlock(text));
-            });
-            window.prettyPrint && prettyPrint();
-        </script>
     </body>
 </html>

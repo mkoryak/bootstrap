@@ -28,16 +28,12 @@
             <span><a class="btn btn-small btn-success" href="#">Save</a></span>
         </div>
         This is the portlet body. There can be some text here or whatever you want.
-        This is the portlet body. There can be some text here or whatever you want.
-        This is the portlet body. There can be some text here or whatever you want.
     </div>
 
     <div class="portlet">
         <div class="header">
-            <span>A portlet without a link</span>
+            <span>A portlet without a control</span>
         </div>
-        This is the portlet body. There can be some text here or whatever you want.
-        This is the portlet body. There can be some text here or whatever you want.
         This is the portlet body. There can be some text here or whatever you want.
     </div>
 </section>
@@ -49,13 +45,14 @@
     <p>
         Portlet color is controlled by specifying a color class, for example to make a red portlet you would write:
     </p>
-<script class="code" type="template/text">
-<div class="portlet red">
-    <div class="header">
-        <span>Red Portlet</span>
-    </div>
-    Note the 'red' class added to this portlet.
-</div></script>
+    <script class="code" type="template/text">
+        <div class="portlet red">
+            <div class="header">
+                <span>Red Portlet</span>
+            </div>
+            Note the 'red' class added to this portlet.
+        </div>
+    </script>
 
     {{ h.portlet('Blue Portlet', cls='blue') }}
     {{ h.portlet('Dark Blue Portlet', cls='dark-blue') }}
@@ -111,11 +108,12 @@
 {% endblock %}
 {% block scripts %}
 <script type="text/javascript">
+    var lorem = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.';
     $(function(){
         $('body.component-portlet .portlet').each(function(){
             var $p = $(this);
             var html = $p.clone().wrap("<div></div>").parent().html();
-            var $highlight = highlightBlock(html);
+            var $highlight = highlightBlock(html.replace(lorem, 'Lorem ipsum dolor sit amet...\n    consectetuer adipiscing elit...'));
             $p.addClass('reveal').wrap("<div class='reveal-code'></div>");
             $p.after($highlight);
         });
