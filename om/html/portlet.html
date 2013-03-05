@@ -9,6 +9,7 @@
 {% block subnav %}
     <li><a href="#basic"><i class="icon-chevron-right"></i> Basic Portlet</a></li>
     <li><a href="#colors"><i class="icon-chevron-right"></i> Portlet Colors</a></li>
+    <li><a href="#corners"><i class="icon-chevron-right"></i> Portlet Corners</a></li>
 {% endblock %}
 
 {% block content %}
@@ -63,6 +64,48 @@
     {{ h.portlet('Light Gray Portlet', cls='light-gray') }}
     {{ h.portlet('Yellow Portlet', cls='yellow') }}
     {{ h.portlet('White Portlet', cls='white') }}
+
+</section>
+
+<section id="corners">
+    <div class="page-header">
+        <h1>Portlet Corners</h1>
+    </div>
+    <p>
+        Portlets come with all 4 corners rounded by default. If you want to specify that only some corners be rounded, you need to add corner classes to the portlet's class.
+    </p>
+    <p>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th style="width: 100px;">Class Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+                {{ h.tr(['corner-top', 'Top two corners are are rounded, bottom are not']) }}
+                {{ h.tr(['corner-bottom', 'Bottom two corners are are rounded, top are not']) }}
+                {{ h.tr(['corner-left', 'Left two corners are are rounded, right are not']) }}
+                {{ h.tr(['corner-right', 'Right two corners are are rounded, left are not']) }}
+                {{ h.tr(['corner-tl', 'Only top left corner is rounded']) }}
+                {{ h.tr(['corner-bl', 'Only bottom left corner is rounded']) }}
+                {{ h.tr(['corner-tr', 'Only top right corner is rounded']) }}
+                {{ h.tr(['corner-br', 'Only bottom right corner is rounded']) }}
+                {{ h.tr(['corner-none', 'No rounded corners']) }}
+            </tbody>
+        </table>
+    </p>
+
+    {{ h.portlet('Top Rounded', cls='corner-top') }}
+    {{ h.portlet('Bottom Rounded', cls='corner-bottom') }}
+    {{ h.portlet('Left Rounded', cls='corner-left') }}
+    {{ h.portlet('Right Rounded', cls='corner-right') }}
+    {{ h.portlet('Top Left Rounded', cls='corner-tl') }}
+    {{ h.portlet('Top Right Rounded', cls='corner-tr') }}
+    {{ h.portlet('Bottom Left Rounded', cls='corner-bl') }}
+    {{ h.portlet('Bottom Right Rounded', cls='corner-br') }}
+    {{ h.portlet('None Rounded', cls='corner-none') }}
+
 
 </section>
 {% endblock %}

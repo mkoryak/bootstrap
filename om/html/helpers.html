@@ -7,3 +7,9 @@
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
 </div>
 {% endmacro %}
+
+{% macro tr(td_list) %}
+    <tr>
+    {% for td in td_list %}<td>{{ td|d('&nbsp;') }}</td>{% endfor %}
+    </tr>
+{% endmacro %}

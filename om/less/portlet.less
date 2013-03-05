@@ -33,8 +33,9 @@
       font-weight: normal;
     }
   }
-
-  /*colors */
+  /*******************************************************/
+  /*********************** COLORS  ***********************/
+  /*******************************************************/
   &.blue,
   &.dark-blue,
   &.red,
@@ -82,6 +83,49 @@
         color: white;
       }
     }
+  }
+
+/*******************************************************/
+/*********************** CORNERS ***********************/
+/*******************************************************/
+  &.corner-top {
+    .border-top-radius(@baseBorderRadius);
+    .border-bottom-radius(0);
+  }
+  &.corner-bottom {
+    .border-bottom-radius(@baseBorderRadius);
+    .border-top-radius(0);
+  }
+  &.corner-left {
+    .border-left-radius(@baseBorderRadius);
+    .border-right-radius(0);
+  }
+  &.corner-right {
+    .border-right-radius(@baseBorderRadius);
+    .border-left-radius(0);
+  }
+  &.corner-tl {
+    .border-top-left-radius(@baseBorderRadius);
+    .border-bottom-radius(0);
+    .border-top-right-radius(0);
+  }
+  &.corner-tr {
+    .border-top-right-radius(@baseBorderRadius);
+    .border-bottom-radius(0);
+    .border-top-left-radius(0);
+  }
+  &.corner-br {
+    .border-bottom-right-radius(@baseBorderRadius);
+    .border-top-radius(0);
+    .border-bottom-left-radius(0);
+  }
+  &.corner-bl {
+    .border-bottom-left-radius(@baseBorderRadius);
+    .border-top-radius(0);
+    .border-bottom-right-radius(0);
+  }
+  &.corner-none {
+    .border-radius(0);
   }
 
 }
