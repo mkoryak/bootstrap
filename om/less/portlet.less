@@ -13,7 +13,7 @@
     position: relative;
 
     height: auto;
-    margin: -18px -19px 15px;
+    margin: 10px -19px 15px;
     padding: 12px 18px;
 
     background-color: @grayLighter;
@@ -30,9 +30,16 @@
     }
     >span + span {
       .pull-right;
+      font-size: 14px;
       font-weight: normal;
     }
+
+    &:first-child {
+      margin: -18px -19px 15px;
+      .border-radius(0);
+    }
   }
+
   /*******************************************************/
   /*********************** COLORS  ***********************/
   /*******************************************************/
@@ -116,5 +123,19 @@
   &.corner-bl {
     .border-bottom-left-radius(@baseBorderRadius);
   }
+
+/*******************************************************/
+/************************ MISC *************************/
+/*******************************************************/
+
+  &.nopad {
+      padding: 0;
+      div.header {
+        overflow: hidden;
+        margin: 0;
+        padding: 12px 18px;
+      }
+  }
+
 
 }

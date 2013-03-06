@@ -7,9 +7,10 @@
 
 
 {% block subnav %}
-    <li><a href="#basic"><i class="icon-chevron-right"></i> Basic Portlet</a></li>
-    <li><a href="#colors"><i class="icon-chevron-right"></i> Portlet Colors</a></li>
-    <li><a href="#corners"><i class="icon-chevron-right"></i> Portlet Corners</a></li>
+    <li><a href="#basic"><i class="icon-chevron-right"></i> Basics</a></li>
+    <li><a href="#colors"><i class="icon-chevron-right"></i> Colors</a></li>
+    <li><a href="#corners"><i class="icon-chevron-right"></i> Corners</a></li>
+    <li><a href="#misc"><i class="icon-chevron-right"></i> Misc</a></li>
 {% endblock %}
 
 {% block content_class %}span8{% endblock %}
@@ -20,23 +21,55 @@
     <div class="page-header">
         <h1>Basic Portlet</h1>
     </div>
-    <p>
-        Hover over the portlet to see the underlying HTML.
-    </p>
+    <h4>
+        Hover over any of the portlets on this page to see the underlying HTML.
+    </h4>
+    <br/>
 
     <div class="portlet">
         <div class="header">
             <span>This is the portlet title</span>
+        </div>
+        This is the portlet body. There can be some text here or whatever you want.
+    </div>
+
+    <p>
+        This portlet includes a control to the right of the title. It can be anything: a button, a link, a checkbox, an image...
+    </p>
+    <div class="portlet">
+        <div class="header">
+            <span>A portlet with a control</span>
             <span><a class="btn btn-small btn-success" href="#">Save</a></span>
         </div>
         This is the portlet body. There can be some text here or whatever you want.
     </div>
 
+    <p>
+        This portlet includes a sub-header
+    </p>
     <div class="portlet">
         <div class="header">
-            <span>A portlet without a control</span>
+            <span>A portlet with a sub-header</span>
         </div>
         This is the portlet body. There can be some text here or whatever you want.
+        <div class="header">
+            <span>Sub-header!!!</span>
+        </div>
+        This is the portlet body. There can be some text here or whatever you want.
+    </div>
+    <p>
+        This portlet includes a sub-header and a control
+    </p>
+    <div class="portlet">
+        <div class="header">
+            <span>A portlet with a sub-header</span>
+        </div>
+        This is the portlet body. There can be some text here or whatever you want.
+        <div class="header">
+            <span>Sub-header!!!</span>
+            <span><i class="icon-warning-sign"></i> Slippery when wet</span>
+        </div>
+        This is the 2nd portlet body. There can be some text here or whatever you want.
     </div>
 </section>
 
@@ -109,6 +142,30 @@
     {{ h.portlet('None Rounded', cls='corner-none') }}
     {{ h.portlet('Funky Corners', cls='corner-tl corner-br') }}
 
+
+</section>
+
+<section id="misc">
+    <div class="page-header">
+        <h1>Misc Portlet Styles</h1>
+    </div>
+    <p>
+        Sometimes you want to use up all the space within a portlet for content, for this you can use the <code>nopad</code> class.
+    </p>
+
+    {{ h.portlet('No Padding', cls='nopad') }}
+
+    <p>No padding with a sub-header</p>
+    <div class="portlet nopad">
+        <div class="header">
+            <span>A Title</span>
+        </div>
+        This is the portlet body.
+        <div class="header">
+            <span>Another Title</span>
+        </div>
+        This is the 2nd portlet body.
+    </div>
 
 </section>
 {% endblock %}
