@@ -1,5 +1,5 @@
-{% extends "base.html" %}
-{% import "helpers.html" as h %}
+{% extends "lib/base.html" %}
+{% import "lib/helpers.html" as h %}
 
 {% block styles %}
     <link href="/css/portlet.css" rel="stylesheet"/>
@@ -11,6 +11,8 @@
     <li><a href="#colors"><i class="icon-chevron-right"></i> Portlet Colors</a></li>
     <li><a href="#corners"><i class="icon-chevron-right"></i> Portlet Corners</a></li>
 {% endblock %}
+
+{% block content_class %}span8{% endblock %}
 
 {% block content %}
 
@@ -72,6 +74,9 @@
         Portlets come with all 4 corners rounded by default. If you want to specify that only some corners be rounded, you need to add corner classes to the portlet's class.
     </p>
     <p>
+        You can also mix and match the corner classes to get funky combinations
+    </p>
+    <p>
         <table class="table table-bordered table-striped">
             <thead>
             <tr>
@@ -102,6 +107,7 @@
     {{ h.portlet('Bottom Left Rounded', cls='corner-bl') }}
     {{ h.portlet('Bottom Right Rounded', cls='corner-br') }}
     {{ h.portlet('None Rounded', cls='corner-none') }}
+    {{ h.portlet('Funky Corners', cls='corner-tl corner-br') }}
 
 
 </section>

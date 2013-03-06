@@ -6,15 +6,12 @@
     setTimeout(function () {
         $('.bs-docs-sidenav').affix({
             offset: {
-                top: function () { return 0; }
+                top: function () { return 0; },
+                bottom: 260
             }
         })
     }, 100);
 
-    var highlightBlock = function(html){
-        var text = dedent(html.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
-        return $("<pre class='prettyprint'>"+text+"</pre>");
-    };
 
     //syntax highlighting:
     $('script.code').each(function(){
@@ -29,19 +26,30 @@
 })(jQuery);
 
 /**
+ * given some HTML(or code), this will give you back a DETACHED jquery element with that html syntax highlighted.
+ * @param html
+ * @return {*|jQuery|HTMLElement}
+ */
+function highlightBlock(html){
+    var text = dedent(html.replace(/</g, '&lt;').replace(/>/g, '&gt;'), true);
+    return $("<pre class='prettyprint'>"+text+"</pre>");
+}
+
+/**
  * Remove any common leading whitespace from every line in `text`
  * Ported from http://hg.python.org/cpython/file/2.7/Lib/textwrap.py
  * @param text
+ * @param isHtmlBlock = useful for syntax highlighting html blocks where the first line is not indented but the rest are
  * @return {*}
  */
-function dedent(text){
+function dedent(text, isHtmlBlock){
     var leadingWhitespaceRE = /(^[ \t]*)(?:[^ \t\n])/;
     var margin = null;
     var i;
     text = text.replace(/^[ \t]+$/m, ''); //whitespace only
 
     var lines = text.split('\n');
-    for(i = 0; i < lines.length; i++){
+    for(i = (isHtmlBlock ? 1 : 0); i < lines.length; i++){
         var line = lines[i];
         if(leadingWhitespaceRE.exec(line)){
             var indent = RegExp.$1;

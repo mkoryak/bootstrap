@@ -13,3 +13,9 @@
     {% for td in td_list %}<td>{{ td|d('&nbsp;') }}</td>{% endfor %}
     </tr>
 {% endmacro %}
+
+{% macro top_nav(page, title, selected) %}
+    <li class="{% if page == selected %}active{% endif %}">
+        <a href="{{ page }}.html">{{ title }}</a>
+    </li>
+{% endmacro %}

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% import "lib/helpers.html" as h %}
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -26,7 +27,7 @@
     <link rel="shortcut icon" href="/docs/assets/ico/favicon.png">
     {% block styles %}{% endblock %}
 </head>
-    <body data-spy="scroll" data-target=".bs-docs-sidebar" class="component-{{ name }}">
+    <body data-spy="scroll" data-target=".bs-docs-sidebar" class="component-{{ selectedTab }}">
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
@@ -39,30 +40,13 @@
                     <a class="brand" href="/">Open Mile Components</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="">
-                                <a href="/index/">Home</a>
-                            </li>
-                            <li class="">
-                                <a href="getting-started.html">Get started</a>
-                            </li>
-                            <li class="">
-                                <a href="scaffolding.html">Scaffolding</a>
-                            </li>
-                            <li class="">
-                                <a href="base-css.html">Base CSS</a>
-                            </li>
-                            <li class="">
-                                <a href="components.html">Components</a>
-                            </li>
-                            <li class="">
-                                <a href="javascript.html">JavaScript</a>
-                            </li>
-                            <li class="">
-                                <a href="customize.html">Customize</a>
-                            </li>
-                            <li class="active">
-                                <a href="/portlet/">Portlet</a>
-                            </li>
+                            {{ h.top_nav('index', 'Home', selectedTab) }}
+                            {{ h.top_nav('getting-started', 'Get started', selectedTab) }}
+                            {{ h.top_nav('scaffolding', 'Scaffolding', selectedTab) }}
+                            {{ h.top_nav('base-css', 'Base CSS', selectedTab) }}
+                            {{ h.top_nav('components', 'Components', selectedTab) }}
+                            {{ h.top_nav('javascript', 'JavaScript', selectedTab) }}
+                            {{ h.top_nav('portlet', 'Portlet', selectedTab) }}
                         </ul>
                     </div>
                 </div>
@@ -80,7 +64,7 @@
                         {% block subnav %}{% endblock %}
                     </ul>
                 </div>
-                <div class="span8">
+                <div class="{% block content_class %}span9{% endblock %}">
                     {% block content %}{% endblock %}
                 </div>
             </div>

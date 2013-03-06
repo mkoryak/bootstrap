@@ -33,10 +33,13 @@ app.configure('all', function(){
     });
 });
 
-
+app.get('/', function(req, res){
+    res.render('index.html', {selectedTab: 'index'});
+});
 app.get('/:file', function(req, res){
     var fn = req.params.file;
-    res.render(fn+'.html', {name: fn});
+    var tabName = fn.substring(0, fn.length - 5);
+    res.render(fn, {selectedTab: tabName});
 });
 
 
