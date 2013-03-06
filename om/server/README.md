@@ -13,14 +13,12 @@
 
         node app.js
 
-6.  open your browser and go to [http://localhost:5005/portlet/](http://localhost:5005/portlet/)
+6.  open your browser and go to [http://localhost:5005/portlet/](http://localhost:5005/)
 
-    to view other html files just replace 'portlet' in the url with the filename (without .html)
-    the html files are found in `/om/html/*.html`
 
 ## Windows
 
-1.  make sure you have [nodejs](http://nodejs.org.  installed
+1.  make sure you have [nodejs](http://nodejs.org)  installed
 2.  click start, go to run, type `cmd` and press enter to open the command line shell
 3.  on the command line `cd` to this directory
 4.  run this command:
@@ -32,7 +30,5 @@
 
         node app.js
 
-7.  open your browser and go to [http://localhost:5005/portlet/](http://localhost:5005/portlet/)
+7.  open your browser and go to [http://localhost:5005/](http://localhost:5005/)
 
-    to view other html files just replace `portlet` in the url with the filename (without .html)
-    the html files are found in `/om/html/*.html`
