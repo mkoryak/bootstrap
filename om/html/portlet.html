@@ -21,10 +21,6 @@
     <div class="page-header">
         <h1>Basic Portlet</h1>
     </div>
-    <h4>
-        Hover over any of the portlets on this page to see the underlying HTML.
-    </h4>
-    <br/>
 
     <div class="portlet">
         <div class="header">
@@ -78,16 +74,9 @@
         <h1>Portlet Colors</h1>
     </div>
     <p>
-        Portlet color is controlled by specifying a color class, for example to make a red portlet you would write:
+        Portlet color is controlled by specifying a color class:
     </p>
-    <script class="code" type="template/text">
-        <div class="portlet red">
-            <div class="header">
-                <span>Red Portlet</span>
-            </div>
-            Note the 'red' class added to this portlet.
-        </div>
-    </script>
+
 
     {{ h.portlet('Blue Portlet', cls='blue') }}
     {{ h.portlet('Dark Blue Portlet', cls='dark-blue') }}
@@ -177,8 +166,8 @@
             var $p = $(this);
             var html = $p.clone().wrap("<div></div>").parent().html();
             var $highlight = highlightBlock(html.replace(lorem, 'Lorem ipsum dolor sit amet...\n    consectetuer adipiscing elit...'));
-            $p.addClass('reveal').wrap("<div class='reveal-code'></div>");
-            $p.after($highlight);
+            $p.wrap("<div class='bs-docs-example'></div>");
+            $p.parent().after($highlight);
         });
     });
 </script>
