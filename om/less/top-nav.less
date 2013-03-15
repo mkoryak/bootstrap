@@ -1,0 +1,76 @@
+@import '../../bootstrap/less/variables.less';
+@import '../../bootstrap/less/mixins.less';
+@import '../../bootstrap/less/utilities.less';
+
+
+div.top-nav {
+  background: url(/images/masthead_bg.jpg) repeat-x scroll 0 0 transparent;
+  a.logo {
+    margin-left: 40px;
+    display: inline-block;
+    padding: 35px 0 31px 70px;
+    width: 140px;
+    background: url(/images/logo.png) no-repeat scroll 0 -5px transparent;
+  }
+  ul.controls {
+    .pull-right;
+    margin-right: 40px;
+
+    background-color: #13496D;
+    border-bottom: 1px solid #34749A;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-left: 1px solid #34749A;
+    border-right: 1px solid #34749A;
+    color: #98CBF8;
+    font-family: arial;
+    font-size: 12px;
+    z-index: 20;
+    
+    
+    
+    li {
+      border-right: 1px solid #34749A;
+      display: inline-block;
+      padding: 7px 10px;
+      
+      &:last-child {
+        border-right: none;
+      }
+      
+      a {
+        color: #8CA6CB;
+        padding: 0 3px;
+      }
+    }
+    
+  }
+  span.help {
+    .pull-right;
+    
+    display: inline-block;
+    
+    color: #D4E2FD;
+    position: relative;
+    top: 9px;
+  }
+  
+  //tabs
+  .nav-tabs {
+    > li {
+      margin-right: 3px;
+      > a {
+        background-color: #EEE;
+        border-color: #EEE;
+        color: #555;
+      }
+      &.active {
+        > a {
+          background-color: #FFF;
+          border-color: #FFF;
+        }
+      }
+    }
+    
+  }
+}

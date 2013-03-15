@@ -23,7 +23,7 @@
 3.  on the command line `cd` to this directory
 4.  run this command:
 
-        sudo npm install
+        npm install
 
 5.  at the root of the project, a new directory will be created called `node_modules`, add this directory to `.gitignore` - you dont want to push it
 6.  run this command on the command line to start the server:
