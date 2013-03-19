@@ -1,0 +1,65 @@
+@import '../../bootstrap/less/navs.less';
+@import '../../bootstrap/less/variables.less';
+@import '../../bootstrap/less/mixins.less';
+@import '../../bootstrap/less/utilities.less';
+
+
+.side-tabs{
+
+  position: relative;
+
+  div {
+    background: url(/images/sidetabs_middle.png) repeat scroll 1px 0 transparent;
+    height: auto;
+    width: 301px;
+  }
+
+  div:first-child {
+    width: 301px;
+    height: 25px;
+    background: url(/images/sidetabs_top.png) repeat scroll 0px 0 transparent;
+    border-left: 0px solid #ccc;
+    position: relative;
+    left: 0px;
+    margin-top: -8px;
+  }
+  div > ul {
+
+    margin:0;
+    padding: 0;
+    list-style: none;
+
+    li {font-size: 13px;  background: url(/images/sidetabs_separator.png) no-repeat left bottom; }
+    li:last-child {background: none;}
+    li a {text-decoration: none; display: block; cursor: pointer;}
+    li a:hover {background: #429cd5; color: white;}
+    li a span:hover {color: white; text-decoration: none;}
+    li.active a {color: black; font-weight: bold; cursor: default;}
+    li.active a:hover,li.active a span:hover  { background: none; color: black; }
+    li.active {
+      position: relative;
+      height: 46px;
+      padding-top: 10px;
+      background: url(/images/sidetabs_active.png) no-repeat -6px 0;
+      border-left: 1px solid white;
+      left: -1px;
+      width: 310px;
+      margin: -7px 0 -9px 0;
+    }
+    li a span.link {
+      width: 250px;
+      padding-right:27px;
+      display:inline-block;
+    }
+    li a span.link {
+      padding:8px 0 8px 12px;
+    }
+    li:last-child.active {margin-bottom: -4px}
+  }
+  div:last-child {
+    background: url(/images/sidetabs_bottom.png);
+    width: 300px;
+    height: 13px;
+    border-left: 1px solid #ccc;
+  }
+}
