@@ -1,3 +1,4 @@
+@import '../../bootstrap/less/forms.less';
 @import '../../bootstrap/less/variables.less';
 @import '../../bootstrap/less/mixins.less';
 @import '../../bootstrap/less/utilities.less';
@@ -53,6 +54,18 @@ div.top-nav {
     color: #D4E2FD;
     position: relative;
     top: 9px;
+  }
+  div.search {
+    .input-append;
+    .pull-right;
+    margin-right: 40px;
+
+    input {
+      width: 70px;
+    }
+    input.focus {
+      width: 250px;
+    }
   }
   
   //tabs
