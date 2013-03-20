@@ -1,0 +1,75 @@
+{% extends "lib/base.html" %}
+{% import "lib/helpers.html" as h %}
+
+{% block styles %}
+<link href="/css/portlet.css" rel="stylesheet"/>
+{% endblock %}
+
+
+{% block container %}
+{% include 'partials/nav.html' %}
+<div class="container">
+    <div class="row">
+        <div class="span9">
+            <h2 style="display: inline-block;">Carrier Rating</h2> HMD Trucking, Inc. MC# 415186
+            <div class="portlet">
+                <div class="header"><span>Safe Stat</span></div>
+                <form class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label" for="inputRating">Fmcsa Rating</label>
+                        <div class="controls">
+                            <input type="text" id="inputRating" placeholder="" value="Satisfactory">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputV">Safestat Vehicle</label>
+                        <div class="controls">
+                            <div class="input-append">
+                                <input type="text" id="inputV" value="100">
+                                <span class="add-on">%</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputD">Safestat Driver</label>
+                        <div class="controls">
+                            <div class="input-append">
+                                <input type="text" id="inputD" value="99">
+                                <span class="add-on">%</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputA">Safestat Accident</label>
+                        <div class="controls">
+                            <div class="input-append">
+                                <input type="text" id="inputA" value="100">
+                                <span class="add-on">%</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputM">Safestat Safety Mgmt</label>
+                        <div class="controls">
+                            <div class="input-append">
+                                <input type="text" id="inputM" placeholder="" value="80">
+                                <span class="add-on">%</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="span3">
+            {% include 'partials/side-tabs.html' %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+        
+        
